@@ -6,8 +6,8 @@ import pandas as pd
 application = Flask(__name__)
 app = application
 
-scaler = pickle.load(open('/config/workspace/Diabetes-Deployment/Model/StandardScaler.pkl','rb'))
-model = pickle.load(open('/config/workspace/Diabetes-Deployment/Model/modelforprediction','rb'))
+scaler = pickle.load(open('/config/workspace/Diabetes-Deployment/Model/standardScalar.pkl','rb'))
+model = pickle.load(open('/config/workspace/Diabetes-Deployment/Model/modelforprediction.pkl','rb'))
 
 @app.route("/")
 def index():
@@ -30,7 +30,9 @@ def predict_datapoint():
         Age = float(request.form.get('Age'))
 
         new_data = scaler.transform([[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]])
+        model=pickle.load(open('/config/workspace/Diabetes-Deployment/Model/modelforprediction.pkl','rb'))
         predict=model.predict(new_data)
+
 
         if predict[0] ==1:
             result = 'Diabetic'
@@ -43,4 +45,4 @@ def predict_datapoint():
         return render_template('home.html')
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0",port=5002)
