@@ -1,18 +1,21 @@
 from flask import Flask, request, app, render_template
+from flask_cors import cross_origin
 import pickle
 import numpy as np
 import pandas as pd
 
 application = Flask(__name__)
 
-scaler = pickle.load(open('/config/workspace/Diabetes-Deployment/Model/standardScalar.pkl','rb'))
-model = pickle.load(open('/config/workspace/Diabetes-Deployment/Model/modelforprediction.pkl','rb'))
+scaler = pickle.load(open('Model/standardScalar.pkl','rb'))
+model = pickle.load(open('Model/modelforprediction.pkl','rb'))
 
+@cross_origin
 @application.route("/")
 def index():
     return render_template('index.html')
 
 ## Route for single data prediction
+@cross_origin
 @application.route('/predictdata',methods=['GET','POST'])
 def predict_datapoint():
     result=''
