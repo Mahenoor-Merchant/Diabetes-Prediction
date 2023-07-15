@@ -4,17 +4,16 @@ import numpy as np
 import pandas as pd
 
 application = Flask(__name__)
-app = application
 
 scaler = pickle.load(open('/config/workspace/Diabetes-Deployment/Model/standardScalar.pkl','rb'))
 model = pickle.load(open('/config/workspace/Diabetes-Deployment/Model/modelforprediction.pkl','rb'))
 
-@app.route("/")
+@application.route("/")
 def index():
     return render_template('index.html')
 
 ## Route for single data prediction
-@app.route('/predictdata',methods=['GET','POST'])
+@application.route('/predictdata',methods=['GET','POST'])
 def predict_datapoint():
     result=''
 
@@ -45,4 +44,4 @@ def predict_datapoint():
         return render_template('home.html')
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0",port=5002)
+    application.run(host="0.0.0.0",port=5000)
