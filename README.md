@@ -16,7 +16,7 @@ python app.py
 
 To access the flask application open new tab in and paste the url:
 ```
-http://deployment-env.eba-bcqvpk6j.us-east-1.elasticbeanstalk.com/predictdata
+http://deployment-env.eba-bcqvpk6j.us-east-1.elasticbeanstalk.com
 ```
 
 
