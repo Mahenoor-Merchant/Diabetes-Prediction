@@ -2,24 +2,6 @@
 
 This is a machine learning model that predicts whether a person has diabetes or not based on several input features. The model uses a dataset containing information such as Pregnancies, Glucose, Blood Pressure, Skin Thickness, Insulin, BMI, Diabetes Pedigree Function, and Age.
 
-# lab-flask
-
-<!-- ![image](https://user-images.githubusercontent.com/115451707/196919992-edcfea8b-e3f6-4f35-9398-43be66b5622d.png) -->
-
-
-To run flask application 
-
-```
-python app.py
-```
-
-
-To access the flask application open new tab in and paste the url:
-```
-http://deployment-env.eba-bcqvpk6j.us-east-1.elasticbeanstalk.com
-```
-
-
 
 ## Dataset
 
